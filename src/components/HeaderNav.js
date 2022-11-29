@@ -7,7 +7,7 @@ function HeaderNav() {
             <p>Icon</p>
         </div>
         <div id='logoMiddle'>
-            <img src='https://via.placeholder.com/280' alt='logo' />
+            <img src='https://via.placeholder.com/280' alt='logo'/>
         </div>
         <div id='iconRight'>
             <p>Icon</p>
