@@ -1,5 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 /***************************  Home  ***************************/  
 .headerNav {
-  
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 60px;
+}
+.headerIcons {
+  width: 35px;
+  height: 35px;
 }
 /***************************  Home  ***************************/  
