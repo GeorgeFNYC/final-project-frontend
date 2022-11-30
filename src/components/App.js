@@ -1,10 +1,18 @@
-import HeaderNav from "./HeaderNav";
+import { Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import Login from './Login'
+import Profile from './Profile'
+
 
 function App() {
   return (
-    <div className="App">
-      <HeaderNav />
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={ <Home /> } />
+        <Route path='/login' element={ <Login /> } />
+        <Route path='/profile' element={ <Profile /> } />
+      </Routes>
+    </>
   );
 }
 
