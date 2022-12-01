@@ -1,8 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import { BiMap } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 
-function HeaderNav() {
+function HeaderNav({ isSignedIn }) {
+    console.log(isSignedIn)
   return (
     <div className='headerNav'>
         <div id='iconLeft'>
@@ -14,9 +17,15 @@ function HeaderNav() {
             <img src='https://via.placeholder.com/280' alt='logo'/>
         </div>
         <div id='iconRight'>
-            <a href='/profile'>
+            {isSignedIn ?
+            <NavLink to='/profile'>
                 <CgProfile className='headerIcons'/>
-            </a>
+            </NavLink>
+            :
+            <NavLink to='/login'>
+                <CgProfile className='headerIcons'/>
+            </NavLink>
+            }
         </div>
     </div>
   )

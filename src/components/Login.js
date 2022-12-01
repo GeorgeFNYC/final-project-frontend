@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+function Login({ signOut }) {
 
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -44,6 +44,7 @@ function Login() {
             </input>
             <input type='submit' value='login'></input>
         </form>
+        <input onClick={signOut} type='submit' value='sign out'></input>
     </>
   )
 }

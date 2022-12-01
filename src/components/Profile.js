@@ -1,12 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
-function Profile({ user }) {
-
-    const navigate = useNavigate();
-
+function Profile() {
   return (
-    <div>Profile</div>
+    <div>Hello</div>
   )
 }
 

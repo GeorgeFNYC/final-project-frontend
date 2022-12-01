@@ -1,9 +1,9 @@
 import React from 'react'
 import HeaderNav from './HeaderNav'
 
-function Home() {
+function Home({ isSignedIn }) {
   return (
-    <HeaderNav />
+    <HeaderNav isSignedIn={isSignedIn} />
   )
 }
 
