@@ -5,7 +5,6 @@ import { BiMap } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 
 function HeaderNav({ isSignedIn }) {
-    console.log(isSignedIn)
   return (
     <div className='headerNav'>
         <div id='iconLeft'>

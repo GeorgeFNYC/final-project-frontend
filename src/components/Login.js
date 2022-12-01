@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-function Login({ signOut }) {
+function Login() {
 
     const navigate = useNavigate();
     const usernameRef = useRef();
@@ -31,8 +31,13 @@ function Login({ signOut }) {
         })
         .then((res) => res.json())
         .then((data) => {
-            localStorage.setItem('jwt', data.token);
-            navigate('/profile');
+            console.log(data)
+            if (data.token !== undefined) {
+                localStorage.setItem('jwt', data.token);
+                navigate('/profile'); 
+            } else {
+                navigate('/home')
+            }
         })
     }
 
@@ -54,7 +59,6 @@ function Login({ signOut }) {
             </input>
             <input type='submit' value='login'></input>
         </form>
-        <input onClick={signOut} type='submit' value='sign out'></input>
     </>
   )
 }

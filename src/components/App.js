@@ -14,18 +14,18 @@ function App() {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    fetch('http://localhost:3000/profile', {
-      headers: {
-        Authorization: 'Bearer' + token,
-      },
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      setCurrentUser(data)
-      setIsSignedIn(true)
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/profile', {
+  //     headers: {
+  //       Authorization: 'Bearer' + token,
+  //     },
+  //   })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     setCurrentUser(data)
+  //     setIsSignedIn(true)
+  //   })
+  // }, [])
 
   function signOut() {
     localStorage.removeItem('jwt');
@@ -38,8 +38,8 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
-        <Route path='/login' element={ <Login signOut={signOut}/> } />
-        <Route path='/profile' element={ <Profile /> } />
+        <Route path='/login' element={ <Login /> } />
+        <Route path='/profile' element={ <Profile signOut={signOut}/> } />
         <Route path='/signup' element={ <Signup /> } />
       </Routes>
     </>
