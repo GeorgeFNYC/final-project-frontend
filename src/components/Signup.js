@@ -1,49 +1,69 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom' 
+import axios from 'axios'
 
 function Signup() {
 
     const navigate = useNavigate()
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirm, setPasswordConfirm] = useState('')
+    const firstNameRef = useRef()
+    const lastNameRef = useRef()
+    const usernameRef = useRef()
+    const passwordRef = useRef()
+    // const passwordConfirmRef = useRef()
+
+    const handleSignup = (e) => {
+        e.preventDefault()
+        console.log(passwordRef)
+        axios.post('http://localhost:3000/users', 
+            {
+                first_name: firstNameRef.current.value,
+                last_name: lastNameRef.current.value,
+                username: usernameRef.current.value,
+                password: passwordRef.current.value,
+                // confirmPassword: passwordConfirmRef.current.value
+            }
+        )
+        .then((r) => {
+            console.log(r.data.token)
+        })
+    }
+
 
   return (
     <>
-        <form>
+        <form onSubmit={handleSignup}>
             <label>First Name:</label>
             <input
                 type='text'
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}>
+                ref={firstNameRef}
+            >
             </input>
             <label>Last Name:</label>
             <input
                 type='text'
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}>
+                ref={lastNameRef}
+            >
             </input>
             <label>Username:</label>
             <input
                 type='text'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}>
+                ref={usernameRef}
+            >
             </input>
             <label>Password:</label>
             <input
+                ref={passwordRef}
                 type='text'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}>
+            >
             </input>
-            <label>Confirm Password:</label>
+            <input type='submit' value='sign up'></input>
+            {/* <label>Confirm Password:</label>
             <input
                 type='text'
-                value={passwordConfirm}
+                ref={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}>
-            </input>
+            </input> */}
         </form>
     </>
   )

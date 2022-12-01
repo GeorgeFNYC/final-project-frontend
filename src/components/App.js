@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Home from './Home'
 import Login from './Login'
 import Profile from './Profile'
+import Signup from './Signup'
 
 
 function App() {
@@ -13,8 +14,7 @@ function App() {
 
   const navigate = useNavigate()
 
-  useEffect(() => { token !== null ? 
-
+  useEffect(() => {
     fetch('http://localhost:3000/profile', {
       headers: {
         Authorization: 'Bearer' + token,
@@ -25,8 +25,6 @@ function App() {
       setCurrentUser(data)
       setIsSignedIn(true)
     })
-    :
-    setIsSignedIn(false)
   }, [])
 
   function signOut() {
@@ -41,7 +39,8 @@ function App() {
       <Routes>
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
         <Route path='/login' element={ <Login signOut={signOut}/> } />
-        <Route path='/profile' component={ <Profile /> } />
+        <Route path='/profile' element={ <Profile /> } />
+        <Route path='/signup' element={ <Signup /> } />
       </Routes>
     </>
   );

@@ -1,22 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 function Login({ signOut }) {
 
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const usernameRef = useRef();
+    const passwordRef = useRef();
+
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // axios.post('http://localhost:3000/auth/login', 
+        // {
+
+        // }
+    
+
         fetch('http://localhost:3000/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: username,
-                password: password,
+                username: usernameRef.current.value,
+                password: passwordRef.current.value,
             }),
         })
         .then((res) => res.json())
@@ -33,14 +43,14 @@ function Login({ signOut }) {
             <label>Enter username:</label>
             <input
                 type='text'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}>
+                ref={usernameRef}
+            >
             </input>
             <label>Enter password</label>
             <input
                 type='text'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}>
+                ref={passwordRef}
+             >
             </input>
             <input type='submit' value='login'></input>
         </form>
