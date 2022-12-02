@@ -14,7 +14,6 @@ function Signup() {
 
     const handleSignup = (e) => {
         e.preventDefault()
-        console.log(passwordRef)
         axios.post('http://localhost:3000/users', 
             {
                 first_name: firstNameRef.current.value,
@@ -25,7 +24,7 @@ function Signup() {
             }
         )
         .then((r) => {
-            console.log(r.data.token)
+            console.log(r)
         })
     }
 

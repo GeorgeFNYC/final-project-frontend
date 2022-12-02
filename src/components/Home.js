@@ -2,11 +2,11 @@ import React from 'react'
 import HeaderNav from './HeaderNav'
 
 function Home({ isSignedIn }) {
-  function handleClick() {
-  }
   return (
-    <HeaderNav isSignedIn={isSignedIn} />
-
+    <>
+      <h1>Home Page</h1>
+      <HeaderNav isSignedIn={isSignedIn} />
+    </>
   )
 }
 

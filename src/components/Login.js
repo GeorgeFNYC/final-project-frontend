@@ -7,17 +7,18 @@ function Login() {
     const navigate = useNavigate();
     const usernameRef = useRef();
     const passwordRef = useRef();
+    const [errors, setErrors] = useState(false)
 
     // const [username, setUsername] = useState('');
     // const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // axios.post('http://localhost:3000/auth/login', 
+        // axios.post('http://localhost:3000/auth/login',
         // {
 
         // }
-    
+
 
         fetch('http://localhost:3000/auth/login', {
             method: 'POST',
@@ -34,9 +35,9 @@ function Login() {
             console.log(data)
             if (data.token !== undefined) {
                 localStorage.setItem('jwt', data.token);
-                navigate('/profile'); 
+                navigate('/profile');
             } else {
-                navigate('/home')
+                setErrors(true)
             }
         })
     }
@@ -55,10 +56,15 @@ function Login() {
             <input
                 type='text'
                 ref={passwordRef}
-             >
+                >
             </input>
             <input type='submit' value='login'></input>
         </form>
+        {errors ?
+            <li>Sorry Username or Password is incorrect</li>
+            :
+            null
+        }
     </>
   )
 }

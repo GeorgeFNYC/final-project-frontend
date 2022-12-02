@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
         <Route path='/login' element={ <Login /> } />
-        <Route path='/profile' element={ <Profile signOut={signOut}/> } />
+        <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
         <Route path='/signup' element={ <Signup /> } />
       </Routes>
     </>
