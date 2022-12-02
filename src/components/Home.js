@@ -6,6 +6,7 @@ function Home({ isSignedIn }) {
     <>
       <h1>Home Page</h1>
       <HeaderNav isSignedIn={isSignedIn} />
+      <a href='/arms'>Arms</a>
     </>
   )
 }

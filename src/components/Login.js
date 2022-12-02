@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
+
 function Login() {
 
     const navigate = useNavigate();
@@ -60,6 +61,7 @@ function Login() {
             </input>
             <input type='submit' value='login'></input>
         </form>
+        <a href='/signup'>Don't have an account?</a>
         {errors ?
             <li>Sorry Username or Password is incorrect</li>
             :

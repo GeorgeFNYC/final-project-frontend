@@ -10,6 +10,8 @@ function Signup() {
     const lastNameRef = useRef()
     const usernameRef = useRef()
     const passwordRef = useRef()
+
+    const [errors, setErrors] = useState(false)
     // const passwordConfirmRef = useRef()
 
     const handleSignup = (e) => {
@@ -24,9 +26,26 @@ function Signup() {
             }
         )
         .then((r) => {
-            console.log(r)
+            console.log(r.data.token)
+            if (r.data.token !== undefined) {
+                localStorage.setItem('jwt', r.data.token);
+                navigate('/profile');
+            } else {
+                setErrors(true)
+            }
+
+        })
+
+        .catch(function (error) {
+            if (error.response) {
+                console.log(error.response.data.errors)
+            } else {
+                console.log(error.response.data.errors)
+            }
         })
     }
+
+    console.log(errors)
 
 
   return (
@@ -64,6 +83,12 @@ function Signup() {
                 onChange={(e) => setPasswordConfirm(e.target.value)}>
             </input> */}
         </form>
+        {errors ? 
+            <li>Error</li>
+        :
+            null
+        }
+        <a href='/login'>Have an account</a>
     </>
   )
 }
