@@ -13,7 +13,9 @@ function HeaderNav({ isSignedIn }) {
             </a>
         </div>
         <div id='logoMiddle'>
-            <img src='https://via.placeholder.com/280' alt='logo'/>
+            <a href='/'>
+                <img src='https://via.placeholder.com/280' alt='logo'/>
+            </a>
         </div>
         <div id='iconRight'>
             {isSignedIn ?

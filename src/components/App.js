@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-
+import axios from 'axios'
 
 import Home from './Home'
 import Login from './Login'
@@ -14,7 +14,16 @@ function App() {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
 
+  const [biceps, setBiceps] = useState({})
+
   const navigate = useNavigate()
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:3000/biceps')
+      .then((data) => {
+        setBiceps(data)
+      })
+    }, [])
 
   // useEffect(() => {
   //   fetch('http://localhost:3000/profile', {
@@ -29,9 +38,6 @@ function App() {
   //   })
   // }, [])
 
-
-
-  
   function signOut() {
     localStorage.removeItem('jwt');
     setCurrentUser({});
@@ -46,7 +52,7 @@ function App() {
         <Route path='/login' element={ <Login /> } />
         <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
         <Route path='/signup' element={ <Signup /> } />
-        <Route path='/arms' element={ <Arms /> }/>
+        <Route path='/arms' element={ <Arms biceps={biceps}/> }/>
       </Routes>
     </>
   );
