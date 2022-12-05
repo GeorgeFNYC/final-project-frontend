@@ -7,6 +7,7 @@ import Login from './Login'
 import Profile from './Profile'
 import Signup from './Signup'
 import Arms from './Arms.js'
+import Chest from './Chest'
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
         <Route path='/signup' element={ <Signup /> } />
         <Route path='/arms' element={ <Arms triceps={triceps} biceps={biceps} forearms={forearms}/> }/>
+        <Route path='/chest' element={<Chest />}/>
       </Routes>
     </>
   );
