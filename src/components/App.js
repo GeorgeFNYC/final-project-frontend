@@ -9,6 +9,7 @@ import Signup from './Signup'
 import Arms from './Arms.js'
 import Chest from './Chest'
 import Abs from './Abs'
+import Legs from './Legs'
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
         <Route path='/arms' element={ <Arms triceps={triceps} biceps={biceps} forearms={forearms}/> }/>
         <Route path='/chest' element={<Chest />}/>
         <Route path='abs' element={<Abs />}/>
+        <Route path='legs' element={<Legs />}/>
       </Routes>
     </>
   );

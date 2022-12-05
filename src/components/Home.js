@@ -16,7 +16,7 @@ function Home({ isSignedIn }) {
         <a href='/abs'>Abs</a>
       </div>
       <div>
-        <a href='/arms'>Legs</a>
+        <a href='/legs'>Legs</a>
       </div>
     </>
   )
