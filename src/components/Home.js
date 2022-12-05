@@ -10,7 +10,7 @@ function Home({ isSignedIn }) {
         <a href='/arms'>Arms</a>
       </div>
       <div>
-        <a href='/arms'>Chest</a>
+        <a href='/chest'>Chest</a>
       </div>
       <div>
         <a href='/arms'>Abs</a>
