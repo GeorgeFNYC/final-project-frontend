@@ -16,35 +16,16 @@ function App() {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
 
-  const [biceps, setBiceps] = useState({})
-  const [triceps, setTriceps] = useState({})
-  const [forearms, setForearms] = useState({})
+  const [workouts, setWorkouts] = useState([])
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:3000/biceps')
+    axios.get('http://127.0.0.1:3000/workouts')
       .then((r) => {
-        setBiceps(r.data)
-        console.log(r.data)
+        setWorkouts(r.data)
       })
     }, [])
-
-    useEffect(() => {
-      axios.get('http://127.0.0.1:3000/triceps')
-        .then((r) => {
-          setTriceps(r.data)
-          console.log(r.data)
-        })
-      }, [])
-
-      useEffect(() => {
-        axios.get('http://127.0.0.1:3000/forearms')
-          .then((r) => {
-            setForearms(r.data)
-            console.log(r.data)
-          })
-        }, [])
 
   // useEffect(() => {
   //   fetch('http://localhost:3000/profile', {
@@ -73,9 +54,9 @@ function App() {
         <Route path='/login' element={ <Login /> } />
         <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
         <Route path='/signup' element={ <Signup /> } />
-        <Route path='/arms' element={ <Arms triceps={triceps} biceps={biceps} forearms={forearms}/> }/>
+        <Route path='/arms' element={ <Arms /> }/>
         <Route path='/chest' element={<Chest />}/>
-        <Route path='abs' element={<Abs />}/>
+        <Route path='abs' element={<Abs workouts={workouts}/>}/>
       </Routes>
     </>
   );
