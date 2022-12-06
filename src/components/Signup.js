@@ -73,12 +73,6 @@ function Signup() {
             >
             </input>
             <input type='submit' value='sign up'></input>
-            {/* <label>Confirm Password:</label>
-            <input
-                type='text'
-                ref={passwordConfirm}
-                onChange={(e) => setPasswordConfirm(e.target.value)}>
-            </input> */}
         </form>
             {signInErrors === undefined || signInErrors.length === 0 ?
             null
