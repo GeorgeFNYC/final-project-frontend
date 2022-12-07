@@ -27,7 +27,6 @@ function Signup() {
             }
         )
         .then((r) => {
-            console.log(r.data.token)
             if (r.data.token !== undefined) {
                 localStorage.setItem('jwt', r.data.token);
                 navigate('/profile');
@@ -72,13 +71,10 @@ function Signup() {
             >
             </input>
             <input type='submit' value='sign up'></input>
-            {/* <label>Confirm Password:</label>
-            <input
-                type='text'
-                ref={passwordConfirm}
-                onChange={(e) => setPasswordConfirm(e.target.value)}>
-            </input> */}
         </form>
+        <a href='/login'>
+            <button>Have an account?</button>
+        </a>
         {signupErrors === undefined || signupErrors.length === 0 ?
             null
             :

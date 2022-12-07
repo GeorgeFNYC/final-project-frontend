@@ -1,6 +1,12 @@
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import axios from 'axios';
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/feather/eye'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+
+import HeaderNav from './HeaderNav';
 
 
 function Login() {
@@ -12,63 +18,68 @@ function Login() {
     const [errors, setErrors] = useState(false)
     const [loginErrors, setLoginErrors] = useState([])
 
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
+    const [type, setType] = useState('password')
+    const [icon, setIcon] = useState(eyeOff)
+
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye)
+            setType('text')
+        } else {
+            setIcon(eyeOff)
+            setType('password')
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // axios.post('http://localhost:3000/auth/login',
-        // {
-
-        // }
-
-
-        fetch('http://localhost:3000/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: usernameRef.current.value,
-                password: passwordRef.current.value,
-            }),
+        axios.post('http://localhost:3000/auth/login', {
+            username: usernameRef.current.value,
+            passwordRef: passwordRef.current.value,
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            if (data.token !== undefined) {
-                localStorage.setItem('jwt', data.token);
-                navigate('/profile');
+        .then((r) => {
+            if (r.data.token !== undefined) {
+                localStorage.setItem('jwt', r.data.token)
+                navigate('/profile')
             } else {
                 setErrors(true)
             }
         })
-        .catch(function (error) {
-            console.log(error)
-            // setLoginErrors(error.response.data.errors)
+        .catch (function(error) {
+            setLoginErrors(error.response.data.errors)
         })
+
     }
 
     //console.log(loginErrors)
 
   return (
     <>
+    <HeaderNav />
+    <div className='loginContainer'>
         <form onSubmit={handleSubmit}>
-            <label>Enter username:</label>
-            <input
-                type='text'
-                ref={usernameRef}
-            >
-            </input>
-            <label>Enter password</label>
-            <input
-                type='text'
-                ref={passwordRef}
+            <div className='inputField'>
+                <input
+                    type='text'
+                    ref={usernameRef}
+                    placeholder='Username'
                 >
-            </input>
-            <input type='submit' value='login'></input>
+                </input>
+            </div>
+            <div className='inputField'>
+                <input
+                    type={type}
+                    ref={passwordRef}
+                    placeholder='Password'
+                    >
+                </input>
+                <span id='iconSpan' onClick={handleToggle}><Icon icon={icon} size={30}/></span>
+            </div>
+            <div id='inputBtnDiv'>
+                <input className='loginSignUpBtn' type='submit' value='Login'></input>
+                <a className='formSwitch' href='/signup'>Don't have an account?</a>
+            </div>
         </form>
-        <a href='/signup'>Don't have an account?</a>
         {loginErrors === undefined || loginErrors.length === 0 ?
             null
             :
@@ -80,6 +91,7 @@ function Login() {
                 )
             })
         }
+    </div>
     </>
   )
 }
