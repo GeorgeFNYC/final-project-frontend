@@ -12,6 +12,7 @@ function Signup() {
     const passwordRef = useRef()
 
     const [errors, setErrors] = useState(false)
+    const [signupErrors, setSignupErrors] = useState([])
     // const passwordConfirmRef = useRef()
 
     const handleSignup = (e) => {
@@ -33,19 +34,14 @@ function Signup() {
             } else {
                 setErrors(true)
             }
-
         })
 
         .catch(function (error) {
-            if (error.response) {
-                console.log(error.response.data.errors)
-            } else {
-                console.log(error.response.data.errors)
-            }
+            setSignupErrors(error.response.data.errors)
         })
     }
 
-    console.log(errors)
+    console.log(signupErrors)
 
 
   return (
@@ -83,12 +79,17 @@ function Signup() {
                 onChange={(e) => setPasswordConfirm(e.target.value)}>
             </input> */}
         </form>
-        {errors ? 
-            <li>Error</li>
-        :
+        {signupErrors === undefined || signupErrors.length === 0 ?
             null
+            :
+            signupErrors.map(error => {
+                return (
+                    <ul key={error.id}>
+                        <li>{error}</li>
+                    </ul>
+                )
+            })
         }
-        <a href='/login'>Have an account</a>
     </>
   )
 }

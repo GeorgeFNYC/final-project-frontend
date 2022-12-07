@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import Logo from './images/websiteLogo.png'
+
 import { BiMap } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 
@@ -14,7 +16,7 @@ function HeaderNav({ isSignedIn }) {
         </div>
         <div id='logoMiddle'>
             <a href='/'>
-                <img src='https://via.placeholder.com/280' alt='logo'/>
+                <img id='navbarLogo' src={Logo} alt='logo'/>
             </a>
         </div>
         <div id='iconRight'>

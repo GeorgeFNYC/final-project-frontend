@@ -8,7 +8,9 @@ function Login() {
     const navigate = useNavigate();
     const usernameRef = useRef();
     const passwordRef = useRef();
+
     const [errors, setErrors] = useState(false)
+    const [loginErrors, setLoginErrors] = useState([])
 
     // const [username, setUsername] = useState('');
     // const [password, setPassword] = useState('');
@@ -41,8 +43,13 @@ function Login() {
                 setErrors(true)
             }
         })
+        .catch(function (error) {
+            console.log(error)
+            // setLoginErrors(error.response.data.errors)
+        })
     }
 
+    //console.log(loginErrors)
 
   return (
     <>
@@ -62,10 +69,16 @@ function Login() {
             <input type='submit' value='login'></input>
         </form>
         <a href='/signup'>Don't have an account?</a>
-        {errors ?
-            <li>Sorry Username or Password is incorrect</li>
-            :
+        {loginErrors === undefined || loginErrors.length === 0 ?
             null
+            :
+            loginErrors.map(error => {
+                return (
+                    <ul key={error.id}>
+                        <li>{error}</li>
+                    </ul>
+                )
+            })
         }
     </>
   )

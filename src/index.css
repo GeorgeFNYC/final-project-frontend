@@ -2,14 +2,52 @@ body {
   margin: 0;
   padding: 0;
 }
-/***************************  Home  ***************************/  
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/***************************  NavBar  ***************************/  
 .headerNav {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 60px;
+  padding: 60px 0;
+}
+#iconLeft {
+  color: #8A171A;
+}
+#iconLeft a:visited {
+  color: #8A171A;
+}
+#iconRight {
+  color: black
+}
+#iconRight a:visited {
+  color: black;
 }
 .headerIcons {
   width: 35px;
   height: 35px;
 }
-/***************************  Home  ***************************/  
+#logoMiddle {
+  width: 15%;
+}
+#navbarLogo {
+  width: 100%;
+}
+/***************************  NavBar  ***************************/  
+
+/***************************  HomePage **************************/
+
+.headerQuestion {
+  display: flex;
+  justify-content: center;
+}
+.bodyIcons {
+  width: 150px;
+}
+#bodyPartContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+/***************************  HomePage **************************/
