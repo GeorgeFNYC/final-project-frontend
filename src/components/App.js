@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Home from './Home'
-import Login from './Login'
 import Profile from './Profile'
-import Signup from './Signup'
 import Arms from './Arms.js'
 import Chest from './Chest'
 import Abs from './Abs'
 import Legs from './Legs'
 import NotFound from './NotFound'
+import ProfileLogin from './ProfileLogin'
 
 
 
@@ -54,14 +53,13 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
-        <Route path='/login' element={ <Login /> } />
         <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
-        <Route path='/signup' element={ <Signup /> } />
         <Route path='/arms' element={ <Arms /> }/>
         <Route path='/chest' element={<Chest />}/>
         <Route path='abs' element={<Abs />}/>
         <Route path='legs' element={<Legs workouts={workouts}/>}/>
-        <Route path='*' element={<NotFound workouts={workouts}/>}/>
+        <Route path='login' element={ <ProfileLogin /> } />
+        <Route path='*' element={<NotFound workouts={workouts}/>} />
       </Routes>
     </>
   );
