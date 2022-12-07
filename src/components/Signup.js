@@ -24,8 +24,7 @@ function Signup() {
                 username: usernameRef.current.value,
                 password: passwordRef.current.value,
                 // confirmPassword: passwordConfirmRef.current.value
-            }
-        )
+            })
         .then((r) => {
             if (r.data.token !== undefined) {
                 localStorage.setItem('jwt', r.data.token);
@@ -36,7 +35,7 @@ function Signup() {
         })
 
         .catch(function (error) {
-            setSignupErrors(error.response.data.errors)
+            console.log(error.response.data.errors)
         })
     }
 

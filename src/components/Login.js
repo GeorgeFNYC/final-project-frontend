@@ -33,9 +33,10 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/auth/login', {
+        axios.post('http://localhost:3000/auth/login', 
+        {
             username: usernameRef.current.value,
-            passwordRef: passwordRef.current.value,
+            password: passwordRef.current.value,
         })
         .then((r) => {
             if (r.data.token !== undefined) {
@@ -46,12 +47,12 @@ function Login() {
             }
         })
         .catch (function(error) {
-            setLoginErrors(error.response.data.errors)
+            setLoginErrors(error.response.data.error)
         })
 
     }
 
-    //console.log(loginErrors)
+    console.log(loginErrors)
 
   return (
     <>
@@ -76,11 +77,11 @@ function Login() {
                 <span id='iconSpan' onClick={handleToggle}><Icon icon={icon} size={30}/></span>
             </div>
             <div id='inputBtnDiv'>
-                <input className='loginSignUpBtn' type='submit' value='Login'></input>
+                <button className='loginSignUpBtn' type='submit' value='Login'>Login</button>
                 <a className='formSwitch' href='/signup'>Don't have an account?</a>
             </div>
         </form>
-        {loginErrors === undefined || loginErrors.length === 0 ?
+        {loginErrors  === undefined || loginErrors.length === 0 ?
             null
             :
             loginErrors.map(error => {
