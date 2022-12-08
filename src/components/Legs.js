@@ -6,9 +6,10 @@ function Legs({ workouts }) {
 
 
   return (
+
     <>
         <HeaderNav />
-        <h1>Legs</h1>
+        <h1 className='headerBodyParts'>Legs</h1>
         <div className='workoutsDiv'>
           <>
             {workouts.slice(12, 20).map(leg => {

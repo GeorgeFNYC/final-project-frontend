@@ -31,19 +31,6 @@ function App() {
       })
     }, [])
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/profile', {
-  //     headers: {
-  //       Authorization: 'Bearer' + token,
-  //     },
-  //   })
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     setCurrentUser(data)
-  //     setIsSignedIn(true)
-  //   })
-  // }, [])
-
   function signOut() {
     localStorage.removeItem('jwt');
     setCurrentUser({});

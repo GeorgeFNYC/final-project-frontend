@@ -75,6 +75,7 @@ body {
 .loginContainer {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 #iconSpan {
   cursor: pointer;
@@ -92,9 +93,8 @@ form {
   width: 330px;
   height: 55px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin: 25px;
 }
 .inputField input{
   width: 100%;
@@ -148,5 +148,13 @@ ul li {
 .workoutClips {
   width: 60%;
   border-radius: 10px;
+}
+.workoutInfo {
+  line-height: 2;
+  width: 90%;
+  padding: 20px;
+}
+.headerBodyParts {
+  text-align: center;
 }
 /*************************** Body Part Component **************/
