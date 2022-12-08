@@ -191,4 +191,16 @@ ul li {
 .profileLinks:visited {
   color: #8A171A;
 }
+.completedWorkout {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.workouts {
+  width: 75%;
+  margin-right: 50px;
+}
+.completedWorkout ul {
+  padding: 0;
+}
 /*************************** Profile Component ****************/

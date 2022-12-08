@@ -20,7 +20,7 @@ function HeaderNav({ isSignedIn }) {
             </a>
         </div>
         <div id='iconRight'>
-            {isSignedIn ?
+            {localStorage.getItem('jwt') ?
             <NavLink to='/profile'>
                 <CgProfile className='headerIcons'/>
             </NavLink>

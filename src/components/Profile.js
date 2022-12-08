@@ -4,6 +4,11 @@ import HeaderNav from './HeaderNav'
 
 function Profile({ signOut }) {
 
+  const arms = ['Dumbbell']
+  const chest = ['Dumbbell Incline Chest Flys', 'Incline Dumbbell Bench Press', 'Dumbbell Bench Press']
+  const abs = ['Forearm Plank', 'Laying Leg Raises']
+  const legs = ['Pull Through', 'Stiff Leg Deadlifts', 'Dumbbell Goblet Good Morning', 'Dumbbell Calf Raise', 'Barbell Calf Raises']
+
   return (
     <>
       <HeaderNav />
@@ -12,8 +17,36 @@ function Profile({ signOut }) {
           <h1>Welcome back</h1>
         </div>
         <div className='completedWorkout'>
-          <div className=''>
-
+          <div className='workouts'>
+            <h2>Arms</h2>
+            <ul>
+              <li>Dumbbell Workout</li>
+            </ul>
+          </div>
+          <div className='workouts'>
+            <h2>Chest</h2>
+            <ul>
+              <li>Dumbbell Incline Chest Flys</li>
+              <li>Incline Dumbbell Bench Press</li>
+              <li>Dumbbell Bench Press</li>
+            </ul>
+          </div>
+          <div className='workouts'>
+            <h2>Abs</h2>
+            <ul>
+              <li>Forearm Plank</li>
+              <li>Laying Leg Raises</li>
+            </ul>
+          </div>
+          <div className='workouts'>
+            <h2>Legs</h2>
+            <ul>
+              <li>Pull Through</li>
+              <li>Stiff Leg Deadlifts</li>
+              <li>Dumbbell Goblet Good Morning</li>
+              <li>Dumbbell Calf Raise</li>
+              <li>Barbell Calf Raises</li>
+            </ul>
           </div>
         </div>
         <div className='letsAddText'>

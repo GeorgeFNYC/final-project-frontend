@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import HeaderNav from './HeaderNav'
 
 function Legs({ workouts }) {
 
+  const [link, setLink] = useState('/login')
+
+const checkLogIn = () => {
+    if (localStorage.getItem('jwt')) {
+      setLink('/profile')
+    } else {
+      setLink('/login')
+    }
+}
 
   return (
 
@@ -18,6 +27,7 @@ function Legs({ workouts }) {
                   <h3 className='workoutName'>{leg.name}</h3>
                   <video className='workoutClips' loop controls src={leg.video_clip}></video>
                   <p className='workoutInfo'>{leg.workout_description}</p>
+                  <a onClick={checkLogIn} href={link}><button>Add workout to your profile</button></a>
                 </div>
               )
             })}
