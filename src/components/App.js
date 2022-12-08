@@ -6,6 +6,7 @@ import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
 import Profile from './Profile'
+import NewProfile from './NewProfile'
 import Arms from './Arms.js'
 import Chest from './Chest'
 import Abs from './Abs'
@@ -44,7 +45,8 @@ function App() {
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
         <Route path='/login' element={ <Login /> } />
         <Route path='/signup' element={ <Signup /> } />
-        <Route path='/profile' element={ <Profile signOut={signOut} currentUser={currentUser}/> } />
+        <Route path='/profile' element={ <Profile signOut={signOut} /> } />
+        <Route path='/newprofile' element={ <NewProfile signOut={signOut} /> } />
         <Route path='/arms' element={ <Arms workouts={workouts}/> }/>
         <Route path='/chest' element={ <Chest workouts={workouts}/> }/>
         <Route path='/abs' element={ <Abs workouts={workouts}/> }/>

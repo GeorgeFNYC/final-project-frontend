@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom' 
+
 import axios from 'axios'
+import {motion} from 'framer-motion'
+
 import HeaderNav from './HeaderNav'
 
 function Signup() {
@@ -24,12 +27,11 @@ function Signup() {
                 last_name: lastNameRef.current.value,
                 username: usernameRef.current.value,
                 password: passwordRef.current.value,
-                // confirmPassword: passwordConfirmRef.current.value
             })
         .then((r) => {
             if (r.data.token !== undefined) {
                 localStorage.setItem('jwt', r.data.token);
-                navigate('/profile');
+                navigate('/newprofile');
             } else {
                 setErrors(true)
             }
@@ -40,13 +42,11 @@ function Signup() {
         })
     }
 
-    console.log(signupErrors)
-
 
   return (
     <>
     <HeaderNav />
-        <div className='loginContainer'>
+        <motion.div initial={{ y: 40, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.5} }} className='loginContainer'>
             <form onSubmit={handleSignup}>
                 <div className='inputField'>
                     <input
@@ -85,7 +85,7 @@ function Signup() {
                     <a className='formSwitch' href='/login'>Already have an account?</a>
                 </div>
             </form>
-        </div>
+        </motion.div>
         <div className='loginSignInErrors'>
             <ul>
                 {signupErrors === undefined || signupErrors.length === 0 ?

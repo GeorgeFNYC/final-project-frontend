@@ -6,7 +6,7 @@ function Chest({ workouts }) {
   return (
     <>
         <HeaderNav />
-        <h1>Chest</h1>
+        <h1 className='headerBodyParts'>Chest</h1>
         <div className='workoutsDiv'>
             {workouts.slice(6, 9).map(chest => {
               return (

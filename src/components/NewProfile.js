@@ -2,25 +2,22 @@ import React from 'react'
 
 import HeaderNav from './HeaderNav'
 
-function Profile({ signOut }) {
-
+function NewProfile({ signOut }) {
   return (
     <>
-      <HeaderNav />
-      <div className='currentUserProfile'>
+        <HeaderNav />
+        <div className='currentUserProfile'>
         <div className='headerProfile'>
-          <h1>Welcome back</h1>
+          <h1></h1>
         </div>
-        <div className='completedWorkout'>
-          <div className=''>
-
-          </div>
+        <div className='repsBlock'>
+          <p>Reps, short for repetitions, are the action of one complete strength training exercise, like one biceps curl. Sets are how many reps you do in a row between periods of rest. By using reps and sets to guide your strength workouts, you can pinpoint and achieve your fitness goals with more control.</p>
         </div>
         <div className='letsAddText'>
-          <p>Let's add some more workouts!</p>
+          <p>Let's start adding some workouts!</p>
         </div>
         <div className='miniNav'>
-          <ul id='profileUL'>
+        <ul id='profileUL'>
             <a className='profileLinks' href='/arms'>
               <li className='profileLI'>Arms</li>
             </a>
@@ -41,4 +38,4 @@ function Profile({ signOut }) {
   )
 }
 
-export default Profile
+export default NewProfile

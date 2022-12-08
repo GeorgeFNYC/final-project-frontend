@@ -124,10 +124,13 @@ form {
   flex-direction: column;
   color: #CC0000;
   font-weight: bold;
+  margin-top: 4%;
 }
 
 ul li {
-  list-style-type: space-counter;
+  list-style-type: none;
+  margin-top: 10px;
+
 }
 /**************************  Login SignUp  **********************/
 /*************************** Map  **************************/
@@ -158,3 +161,34 @@ ul li {
   text-align: center;
 }
 /*************************** Body Part Component **************/
+/*************************** Profile Component ****************/
+
+#profileUL {
+  display: flex;
+  justify-content: space-evenly;
+  width: 40%;
+  margin: auto;
+  padding: 0;
+}
+.profileLI {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+.currentUserProfile {
+  display: flex;
+  width: 55%;
+  flex-direction: column;
+  margin: auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.profileLinks {
+  text-decoration: none;
+  color: #8A171A;
+}
+.profileLinks:visited {
+  color: #8A171A;
+}
+/*************************** Profile Component ****************/

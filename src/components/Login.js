@@ -6,7 +6,9 @@ import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/feather/eye'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 
+
 import HeaderNav from './HeaderNav';
+import { motion } from 'framer-motion';
 
 
 function Login() {
@@ -58,7 +60,7 @@ function Login() {
   return (
     <>
     <HeaderNav />
-    <div className='loginContainer'>
+    <motion.div initial={{ y: 40, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.5} }} className='loginContainer'>
         <form onSubmit={handleSubmit}>
             <div className='inputField'>
                 <input
@@ -82,12 +84,12 @@ function Login() {
                 <a className='formSwitch' href='/signup'>Don't have an account?</a>
             </div>
         </form>
-    </div>
+    </motion.div>
     <div className='loginSignInErrors'>
         {loginErrors.length === 0 ? 
             null
             :
-            <li>{loginErrors.error}</li>
+            <p>{loginErrors.error}</p>
         }
     </div>
     </>
