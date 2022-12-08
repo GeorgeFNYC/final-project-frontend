@@ -10,6 +10,7 @@ import Arms from './Arms.js'
 import Chest from './Chest'
 import Abs from './Abs'
 import Legs from './Legs'
+import Map from './Map'
 import NotFound from './NotFound'
 
 
@@ -61,6 +62,7 @@ function App() {
         <Route path='/chest' element={ <Chest workouts={workouts}/> }/>
         <Route path='/abs' element={ <Abs workouts={workouts}/> }/>
         <Route path='/legs' element={ <Legs workouts={workouts}/> }/>
+        <Route path='/map' element={ <Map /> }/>
         <Route path='*' element={ <NotFound /> } />
       </Routes>
     </>

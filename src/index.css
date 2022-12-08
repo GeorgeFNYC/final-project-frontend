@@ -5,7 +5,7 @@ body {
 * {
   font-family: 'Roboto Condensed', sans-serif;
 }
-/***************************  NavBar  ***************************/  
+/***************************  NavBar  ***************************/
 .headerNav {
   display: flex;
   justify-content: space-evenly;
@@ -33,7 +33,7 @@ body {
 #navbarLogo {
   width: 100%;
 }
-/***************************  NavBar  ***************************/  
+/***************************  NavBar  ***************************/
 
 /***************************  HomePage **************************/
 .headerQuestion {
@@ -85,7 +85,7 @@ form {
   font-size: 1.3rem;
   text-indent: 2px;
 }
-#inputBtnDiv {
+.inputBtnDiv {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -95,6 +95,37 @@ form {
   text-decoration: none;
 }
 .loginSignUpBtn {
-  
+
+}
+.loginSignInErrors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #CC0000;
+  font-weight: bold;
+}
+
+ul li {
+  list-style-type: space-counter;
 }
 /**************************  Login SignUp  **********************/
+/*************************** Map  **************************/
+#mapDiv {
+  margin: auto;
+  width: 70%;
+}
+/*************************** Map  **************************/
+/*************************** Body Part Component **************/
+.workoutsDiv {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+.workouts {
+  text-align: center;
+}
+.workoutClips {
+  width: 60%;
+  border-radius: 10px;
+}
+/*************************** Body Part Component **************/

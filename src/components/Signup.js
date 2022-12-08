@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom' 
 import axios from 'axios'
+import HeaderNav from './HeaderNav'
 
 function Signup() {
 
@@ -35,7 +36,7 @@ function Signup() {
         })
 
         .catch(function (error) {
-            console.log(error.response.data.errors)
+            setSignupErrors(error.response.data.errors)
         })
     }
 
@@ -44,47 +45,60 @@ function Signup() {
 
   return (
     <>
-        <form onSubmit={handleSignup}>
-            <label>First Name:</label>
-            <input
-                type='text'
-                ref={firstNameRef}
-            >
-            </input>
-            <label>Last Name:</label>
-            <input
-                type='text'
-                ref={lastNameRef}
-            >
-            </input>
-            <label>Username:</label>
-            <input
-                type='text'
-                ref={usernameRef}
-            >
-            </input>
-            <label>Password:</label>
-            <input
-                ref={passwordRef}
-                type='text'
-            >
-            </input>
-            <input type='submit' value='sign up'></input>
-        </form>
-        <a href='/login'>
-            <button>Have an account?</button>
-        </a>
-        {signupErrors === undefined || signupErrors.length === 0 ?
-            null
-            :
-            signupErrors.map(error => {
-                return (
-                    <ul key={error.id}>
-                        <li>{error}</li>
-                    </ul>
-                )
-            })
-        }
+    <HeaderNav />
+        <div className='loginContainer'>
+            <form onSubmit={handleSignup}>
+                <div className='inputField'>
+                    <input
+                        type='text'
+                        ref={firstNameRef}
+                        placeholder='First Name'
+                    >
+                    </input>
+                </div>
+                <div className='inputField'>
+                    <input
+                        type='text'
+                        ref={lastNameRef}
+                        placeholder='Last Name'
+                    >
+                    </input>
+                </div>
+                <div className='inputField'>
+                    <input
+                        type='text'
+                        ref={usernameRef}
+                        placeholder='Username'
+                    >
+                    </input>
+                </div>
+                <div className='inputField'>
+                    <input
+                        ref={passwordRef}
+                        type='text'
+                        placeholder='Password'
+                    >
+                    </input>
+                </div>
+                <div className='inputBtnDiv'>
+                    <button className='loginSignUpBtn' type='submit' value='sign up'>Sign Up</button>
+                    <a className='formSwitch' href='/login'>Already have an account?</a>
+                </div>
+            </form>
+        </div>
+        <div className='loginSignInErrors'>
+            <ul>
+                {signupErrors === undefined || signupErrors.length === 0 ?
+                    null
+                    :
+                    signupErrors.map(error => {
+                        return (
+                                <li key={error.id}>{error}</li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     </>
   )
 }

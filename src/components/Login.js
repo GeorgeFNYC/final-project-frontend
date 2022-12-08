@@ -16,7 +16,7 @@ function Login() {
     const passwordRef = useRef();
 
     const [errors, setErrors] = useState(false)
-    const [loginErrors, setLoginErrors] = useState([])
+    const [loginErrors, setLoginErrors] = useState({})
 
     const [type, setType] = useState('password')
     const [icon, setIcon] = useState(eyeOff)
@@ -47,7 +47,8 @@ function Login() {
             }
         })
         .catch (function(error) {
-            setLoginErrors(error.response.data.error)
+            console.log(error)
+            setLoginErrors(error.response.data)
         })
 
     }
@@ -76,21 +77,17 @@ function Login() {
                 </input>
                 <span id='iconSpan' onClick={handleToggle}><Icon icon={icon} size={30}/></span>
             </div>
-            <div id='inputBtnDiv'>
+            <div className='inputBtnDiv'>
                 <button className='loginSignUpBtn' type='submit' value='Login'>Login</button>
                 <a className='formSwitch' href='/signup'>Don't have an account?</a>
             </div>
         </form>
-        {loginErrors  === undefined || loginErrors.length === 0 ?
+    </div>
+    <div className='loginSignInErrors'>
+        {loginErrors.length === 0 ? 
             null
             :
-            loginErrors.map(error => {
-                return (
-                    <ul key={error.id}>
-                        <li>{error}</li>
-                    </ul>
-                )
-            })
+            <li>{loginErrors.error}</li>
         }
     </div>
     </>
