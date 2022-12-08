@@ -40,13 +40,34 @@ body {
   display: flex;
   justify-content: center;
 }
-.bodyIcons {
-  width: 150px;
+.bodyImages {
+  width: 250px;
+  filter: brightness(0.4);
 }
 #bodyPartContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 50px;
+}
+#armDiv{
+  position: relative;
+  text-align: center;
+}
+.icons {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -38%);
+  color: white;
+  font-size: 3rem;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
 }
 /***************************  HomePage **************************/
 

@@ -1,9 +1,12 @@
 import React from 'react'
 
-import Arm from './images/arm.png'
-import Chest from './images/chest.png'
-import Abs from './images/abs.png'
-import Leg from './images/leg.png'
+import {motion} from 'framer-motion'
+import { TbBarbell } from "react-icons/tb";
+
+import Arm from './images/arm.jpg'
+import Chest from './images/chest.jpg'
+import Abs from './images/abs.jpg'
+import Leg from './images/leg.jpg'
 import HeaderNav from './HeaderNav'
 
 function Home({ isSignedIn }) {
@@ -14,30 +17,28 @@ function Home({ isSignedIn }) {
         <h1>Yes, you should workout</h1>
       </div>
       <div id='bodyPartContainer'>
-        <div id='armDiv'>
+        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 0.8} }} id='armDiv'>
           <a href='/arms'>
-            <img className='bodyIcons' src={Arm} alt='arm'/>
-            <p>Arm Workouts</p>
+            <img className='bodyImages' src={Arm} alt='arm'/>
+            <div className='icons'><TbBarbell /></div>
+            <div className='text'>Arm</div>
           </a>
-        </div>
-        <div id='chestDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1} }} id='chestDiv'>
           <a href='/chest'>
-            <img className='bodyIcons' src={Chest} alt='chest'/>
-            <p>Chest Workouts</p>
+            <img className='bodyImages' src={Chest} alt='chest'/>
           </a>
-        </div>
-        <div id='absDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.2} }} id='absDiv'>
           <a href='/abs'>
-            <img className='bodyIcons' src={Abs} alt='abs'/>
-            <p>Ab Workouts</p>
+            <img className='bodyImages' src={Abs} alt='abs'/>
           </a>
-        </div>
-        <div id='legDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.4} }} id='legDiv'>
           <a href='/legs'>
-            <img className='bodyIcons' src={Leg} alt='leg'/>
-            <p>Leg Workouts</p>
+            <img className='bodyImages' src={Leg} alt='leg'/>
           </a>
-        </div>
+        </motion.div>
       </div>
       
     </>
