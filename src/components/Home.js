@@ -16,30 +16,30 @@ function Home({ isSignedIn }) {
       <div className='headerQuestion'>
       </div>
       <div id='bodyPartContainer'>
-        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 0.8} }} id='armDiv'>
+        <div id='armDiv'>
           <a href='/arms'>
             <img className='bodyImages' src={Arm} alt='arm'/>
-            <div className='icons'><TbBarbell /></div>
-            <div className='text'>Arm</div>
           </a>
-        </motion.div>
-        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1} }} id='chestDiv'>
+        </div>
+        <div id='chestDiv'>
           <a href='/chest'>
             <img className='bodyImages' src={Chest} alt='chest'/>
+            <div className='text'>Chest</div>
           </a>
-        </motion.div>
-        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.2} }} id='absDiv'>
+        </div>
+        <div id='absDiv'>
           <a href='/abs'>
             <img className='bodyImages' src={Abs} alt='abs'/>
+            <div className='text'>Abs</div>
           </a>
-        </motion.div>
-        <motion.div initial={{ y: 45, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.4} }} id='legDiv'>
+        </div>
+        <div id='legDiv'>
           <a href='/legs'>
             <img className='bodyImages' src={Leg} alt='leg'/>
+            <div className='text'>Legs</div>
           </a>
-        </motion.div>
+        </div>
       </div>
-      
     </>
   )
 }

@@ -6,7 +6,6 @@ import HeaderNav from './HeaderNav'
 function Arms({ workouts }) {
 
 
-
   return (
     <>
       <HeaderNav />

@@ -2,18 +2,20 @@ import React from 'react'
 
 import HeaderNav from './HeaderNav'
 
-function Abs({ workouts }) {
+function Abs({ workouts, abs, setAbs }) {
   return (
 <>
         <HeaderNav />
         <h1 className='headerBodyParts'>Abs</h1>
         <div className='workoutsDiv'>
-            {workouts.slice(9, 12).map(abs => {
+            {workouts.slice(9, 12).map(ab => {
               return (
                 <div className='workouts'>
-                  <h3 className='workoutName'>{abs.name}</h3>
-                  <video className='workoutClips' loop controls src={abs.video_clip}></video>
-                  <p className='workoutInfo'>{abs.workout_description}</p>
+                  <h3 onClick={() => {
+                    setAbs([...abs, ab.name])
+                  }}className='workoutName'>{ab.name}</h3>
+                  <video className='workoutClips' loop controls src={ab.video_clip}></video>
+                  <p className='workoutInfo'>{ab.workout_description}</p>
                 </div>
               )
             })}

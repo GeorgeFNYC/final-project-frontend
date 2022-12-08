@@ -17,9 +17,12 @@ import NotFound from './NotFound'
 
 
 function App() {
+
   const token = localStorage.getItem('jwt');
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
+
+  const [abs, setAbs] = useState(["Forearm Plank", "Laying Leg Raises"])
 
   const [workouts, setWorkouts] = useState([])
 
@@ -39,17 +42,21 @@ function App() {
     navigate('/');
   }
 
+  function grabWorkoutName() {
+
+  }
+
   return (
     <>
       <Routes>
         <Route path='/' element={ <Home isSignedIn={isSignedIn}/> } />
         <Route path='/login' element={ <Login /> } />
         <Route path='/signup' element={ <Signup /> } />
-        <Route path='/profile' element={ <Profile signOut={signOut} /> } />
+        <Route path='/profile' element={ <Profile abs={abs} signOut={signOut} /> } />
         <Route path='/newprofile' element={ <NewProfile signOut={signOut} /> } />
         <Route path='/arms' element={ <Arms workouts={workouts}/> }/>
         <Route path='/chest' element={ <Chest workouts={workouts}/> }/>
-        <Route path='/abs' element={ <Abs workouts={workouts}/> }/>
+        <Route path='/abs' element={ <Abs setAbs={setAbs}abs={abs} workouts={workouts}/> }/>
         <Route path='/legs' element={ <Legs workouts={workouts}/> }/>
         <Route path='/map' element={ <Map /> }/>
         <Route path='*' element={ <NotFound /> } />
