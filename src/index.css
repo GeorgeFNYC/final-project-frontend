@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   padding: 60px 0;
+  align-items: center;
 }
 #iconLeft {
   color: #8A171A;
@@ -24,8 +25,8 @@ body {
   color: black;
 }
 .headerIcons {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 }
 #logoMiddle {
   width: 15%;
@@ -41,18 +42,20 @@ body {
   justify-content: center;
 }
 .bodyImages {
-  width: 250px;
-  filter: brightness(0.4);
+  width: 300px;
+  filter: brightness(0.5);
 }
 #bodyPartContainer {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 50px;
+  justify-content: center;
+  margin-top: 3%;
 }
-#armDiv{
+#armDiv, #chestDiv, #absDiv, #legDiv{
   position: relative;
   text-align: center;
+  margin: 0 4%;
 }
+
 .icons {
   position: absolute;
   top: 38%;
@@ -67,7 +70,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 /***************************  HomePage **************************/
 
@@ -115,9 +118,6 @@ form {
 .formSwitch {
   text-decoration: none;
 }
-.loginSignUpBtn {
-
-}
 .loginSignInErrors {
   display: flex;
   align-items: center;
@@ -131,6 +131,15 @@ ul li {
   list-style-type: none;
   margin-top: 10px;
 
+}
+.loginSignUpBtn {
+  background-color: #8A171A;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 /**************************  Login SignUp  **********************/
 /*************************** Map  **************************/

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 import { TbBarbell } from "react-icons/tb";
 
 import Arm from './images/arm.jpg'
@@ -16,29 +16,30 @@ function Home({ isSignedIn }) {
       <div className='headerQuestion'>
       </div>
       <div id='bodyPartContainer'>
-        <div id='armDiv'>
+        <motion.div initial={{ y: 60, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.5} }} id='armDiv'>
           <a href='/arms'>
             <img className='bodyImages' src={Arm} alt='arm'/>
+            <div className='text'>Arms</div>
           </a>
-        </div>
-        <div id='chestDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 70, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 1.9} }} id='chestDiv'>
           <a href='/chest'>
             <img className='bodyImages' src={Chest} alt='chest'/>
             <div className='text'>Chest</div>
           </a>
-        </div>
-        <div id='absDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 80, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 2.1} }} id='absDiv'>
           <a href='/abs'>
             <img className='bodyImages' src={Abs} alt='abs'/>
             <div className='text'>Abs</div>
           </a>
-        </div>
-        <div id='legDiv'>
+        </motion.div>
+        <motion.div initial={{ y: 90, opacity: 0}} whileInView={{ y: 0, opacity: 1, transition:{duration: 2.3} }}  id='legDiv'>
           <a href='/legs'>
             <img className='bodyImages' src={Leg} alt='leg'/>
             <div className='text'>Legs</div>
           </a>
-        </div>
+        </motion.div>
       </div>
     </>
   )
